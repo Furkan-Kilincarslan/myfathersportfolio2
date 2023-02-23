@@ -1,0 +1,101 @@
+
+body{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.containertop {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slide-in 4s forwards;
+    position: absolute;
+  }
+  
+  .box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 1;
+    animation: color-change 1s forwards 6s;
+  }
+  
+  .box h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    opacity: 1;
+  }
+  
+  @keyframes slide-in {
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  
+  .box h3 {
+    animation: fade-out 1s forwards 6s;
+  }
+
+  .background-image {
+    
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out 3s;
+
+     
+  }
+  
+  .background-image.loaded {
+    opacity: 1;
+  }
+
+  @keyframes color-change {
+  0% { color: black; }
+  100% { color: white; }
+}
+
+.unselectable {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Safari and Chrome */
+  user-select: none; /* Standard syntax */
+  pointer-events: none; /* Disable mouse events */
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+
+.fixed {
+  position: fixed;
+  
+  z-index: 999;
+}
